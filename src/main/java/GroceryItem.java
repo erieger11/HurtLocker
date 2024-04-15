@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -46,10 +47,15 @@ public class GroceryItem {
         }
         return sb.toString();
     }
+    public String replaceDoublePound(String input){
+        String[] pairs = input.split("##");
+        return Arrays.toString(pairs);
+    }
 
     public String jsonFormat(String input){
         String replaced = replacingSemi(input);
-        return wrapInJson(replaced);
+        String split = replaceDoublePound(replaced);
+        return wrapInJson(split);
 
     }
 
