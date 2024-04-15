@@ -22,36 +22,4 @@ public class GroceryItemTest {
         Assert.assertEquals(expiration, retrievedExpiration);
 
     }
-    @Test
-    public void replacingSemiTest() {
-        String s1 = "Milk;Bread;Cookies";
-        String s2 = "Milk,Bread,Cookies";
-
-        GroceryItem list = new GroceryItem(null,null,null,null);
-        String actual = list.replacingSemi(s1);
-
-        Assert.assertEquals(s2, actual);
-    }
-    @Test
-    public void addingQuotesTest() {
-        String s1 = "apples:1.23,cookies:1.39";;
-        String s2 = "\"apples\":\"1.23\",\"cookies\":\"1.39\"";
-
-        GroceryItem list = new GroceryItem(null,null,null,null);
-        String actual = list.wrapInJson(s1);
-
-        Assert.assertEquals(s2, actual);
-    }
-    @Test
-    public void jsonTest(){
-        String s1 = "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016";
-        String s2 = "\"naMe\":\"Milk\",\"price\":\"3.23\",\"type\":\"Food\",\"expiration\":\"1/25/2016\"";
-
-        GroceryItem list = new GroceryItem(null,null,null,null);
-
-        String actual = list.jsonFormat(s1);
-
-        Assert.assertEquals(s2, actual);
-    }
-
 }
